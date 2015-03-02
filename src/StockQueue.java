@@ -17,6 +17,7 @@ public class StockQueue{
     private int AmountPaid;     //to atore total cost of buy transaction
     private int AmountSold;     //to store total amount os selling transaction
     private int totalShares;    //to store total shares after transactions
+    private int totalAmountSold;
     private int pricePerShare;  
     private int numberSold;
     private int pricePaid;
@@ -50,6 +51,7 @@ public class StockQueue{
         numberSold = numberShares;
         totalShares -= numberShares;
         AmountSold = numberShares*sellPrice;
+        totalAmountSold += AmountSold;
          
         int one; //to represent one unit of share
         int onePrice; //its price
@@ -69,13 +71,14 @@ public class StockQueue{
      *  
      * Methods to return values from 
      * transactions
+     * @return 
      */
     public int getGainLoss(){  
         return totalGain;
     }
     
     public int getAmtSold(){
-        return AmountSold;
+        return totalAmountSold;
     }
    
     public int getAmtPaid(){
